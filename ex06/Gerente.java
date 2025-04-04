@@ -1,38 +1,38 @@
-
-
-public class Gerente extends Funcionario{
+public class Gerente {
+    private String nome;
+    private int matricula;
+    private String telefone;
+    private double salario;
     private double bonificacao;
     private String tipo;
+    private Funcionario funcionario;
 
-    public Gerente(String nome, String telefone, String cpf, String data_nascimento, String sexo, int matricula, double salario, String data_ingresso, String cargo, double bonificacao, String tipo){
-        super(nome, telefone, cpf, data_nascimento, sexo, matricula, salario, data_ingresso, cargo);
+    public Gerente(Funcionario funcionario, String telefone, double salario, double bonificacao, String tipo) {
+        this.nome = funcionario.getNome();
+        this.matricula = funcionario.getMatricula();
+        this.telefone = telefone;
+        this.salario = salario;
         this.bonificacao = bonificacao;
         this.tipo = tipo;
     }
 
-    public Gerente(Funcionario f, double bonificacao, String tipo) {
-        super(f.getNome(), f.getTelefone(), f.getCpf(), f.getData_nascimento(), f.getSexo(), f.getMatricula(), f.getSalario(), f.getData_ingresso(), f.getCargo());
-        this.bonificacao = bonificacao;
-        this.tipo = tipo;
+
+    public double AumentoSalario(double percentual) {
+        this.salario = this.salario + (this.salario * (percentual / 100));
+        return this.salario;
     }
 
-    public double getRecebimentoAnual(){
-        return (getSalario() + this.bonificacao) * 12;
+    public double RecebimentoAnual(){
+        return (this.salario + this.bonificacao) * 12;
     }
 
     public String toString(){
-        return "\nNome: " + getNome() +
-                "\nTelefone: " + getTelefone() +
-                "\nCPF: " + getCpf() +
-                "\nData de nascimento: " + getData_nascimento() +
-                "\nSexo: " + getSexo() +
-                "\nMatricula: " + getMatricula() +
-                "\nSalario: " + getSalario() +
-                "\nData de ingresso: " + getData_ingresso() +
-                "\nSexo: " + getSexo() +
-                "\nCargo: " + getCargo() +
+        return "\nNome: " + this.nome +
+                "\nMatricula: " + this.matricula +
+                "\nTelefone: " + this.telefone +
+                "\nSalario: " + this.salario +
+                "\nBonificacao: " + this.bonificacao +
                 "\nTipo: " + this.tipo +
                 "\n--------------------\n";
     }
 }
-
