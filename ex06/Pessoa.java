@@ -2,35 +2,14 @@ public class Pessoa {
     private String nome;
     private String telefone;
     private String cpf;
-    private String data_nascimento;
+    private int idade;
     private String sexo;
 
-    public Pessoa(String nome, String telefone, String cpf, String data_nascimento, String sexo){
+    public Pessoa(String nome, String telefone, String cpf, int idade, String sexo) {
         this.nome = nome;
         this.telefone = telefone;
         this.cpf = cpf;
-        this.data_nascimento = data_nascimento;
+        this.idade = idade;
         this.sexo = sexo;
-    }
-    
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public String getTelefone() {
-        return this.telefone;
-    }
-
-    public String getCpf() {
-        return this.cpf;
-    }
-
-    public String getSexo(){
-        return this.sexo;
-    }
-
-    public String getData_nascimento(){
-        return this.data_nascimento;
     }
 }
