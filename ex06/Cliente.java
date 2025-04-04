@@ -1,17 +1,14 @@
-
-
-public class Cliente extends Pessoa {
+public class Cliente {
+    private String nome;
+    private String telefone;
+    private String cpf;
     private int idade;
     private String status;
 
-    public Cliente(String nome, String telefone, String cpf, String data_nascimento, String sexo, int idade) {
-        super(nome, telefone, cpf, data_nascimento, sexo);
-        this.idade = idade;
-        this.status = "ativo";
-    }
-
-    public Cliente(Pessoa p, int idade){
-        super(p.getNome(), p.getTelefone(), p.getCpf(), p.getData_nascimento(), p.getSexo());
+    public Cliente(String nome, String telefone, String cpf, int idade) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.cpf = cpf;
         this.idade = idade;
         this.status = "ativo";
     }
@@ -25,7 +22,9 @@ public class Cliente extends Pessoa {
     }
 
     public String toString(){
-        return "\n-----------\n" + getNome() + " - Tel: " + getTelefone() + " - idade: " + idade + " anos - CPF: " + getCpf() + " - " + status;
+        return "\n-----------\n" + nome + " - Tel: " + telefone + " - idade: " + idade + " anos - CPF: " + cpf + " - " + status;
 
     }
 }
+
+
