@@ -1,15 +1,35 @@
+public class Caixa {
+    private String nome;
+    private int matricula;
+    private String telefone;
+    private double salario;
+    private int horario;
+    private Funcionario funcionario;
 
-
-public class Caixa extends Funcionario{
-    private String horario;
-
-    public Caixa(String nome, String telefone, String cpf, String data_nascimento, String sexo, int matricula, double salario, String data_ingresso, String cargo, String horario){
-        super(nome, telefone, cpf, data_nascimento, sexo, matricula, salario, data_ingresso, cargo);
+    public Caixa(Funcionario funcionario, String telefone, double salario, int horario) {
+        this.nome = funcionario.getNome();
+        this.matricula = funcionario.getMatricula();
+        this.telefone = telefone;
+        this.salario = salario;
         this.horario = horario;
     }
 
-    public Caixa(Funcionario f, String horario){
-        super(f.getNome(), f.getTelefone(), f.getCpf(), f.getData_nascimento(), f.getSexo(), f.getMatricula(), f.getSalario(), f.getData_ingresso(), f.getCargo());
-        this.horario = horario;
+
+    public double AumentoSalario(double percentual){
+        this.salario = this.salario + (this.salario * (percentual/100));
+        return this.salario;
+    }
+
+    public double RecebimentoAnual(){
+        return this.salario * 12;
+    }
+
+    public String toString(){
+        return "\nNome: " + this.nome +
+                "\nMatricula: " + this.matricula +
+                "\nTelefone: " + this.telefone +
+                "\nSalario: " + this.salario +
+                "\nHorario: " + this.horario + "h" +
+                "\n--------------------\n";
     }
 }
