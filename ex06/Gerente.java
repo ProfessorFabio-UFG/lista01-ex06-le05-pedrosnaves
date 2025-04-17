@@ -1,21 +1,15 @@
-public class Gerente {
-    private String nome;
-    private int matricula;
-    private String telefone;
+public class Gerente extends Funcionarios{
     private double salario;
     private double bonificacao;
     private String tipo;
-    private Funcionario funcionario;
+    
 
-    public Gerente(Funcionario funcionario, String telefone, double salario, double bonificacao, String tipo) {
-        this.nome = funcionario.getNome();
-        this.matricula = funcionario.getMatricula();
-        this.telefone = telefone;
+    public Gerente(Funcionarios f, double salario, double bonificacao, String tipo) {
+        super(f, f.getMatricula());
         this.salario = salario;
         this.bonificacao = bonificacao;
         this.tipo = tipo;
     }
-
 
     public double AumentoSalario(double percentual) {
         this.salario = this.salario + (this.salario * (percentual / 100));
@@ -27,12 +21,15 @@ public class Gerente {
     }
 
     public String toString(){
-        return "\nNome: " + this.nome +
-                "\nMatricula: " + this.matricula +
-                "\nTelefone: " + this.telefone +
+        return "\nNome: " + getNome() +
+                "\nMatricula: " + getMatricula() +
+                "\nTelefone: " + getTelefone() +
                 "\nSalario: " + this.salario +
                 "\nBonificacao: " + this.bonificacao +
                 "\nTipo: " + this.tipo +
                 "\n--------------------\n";
     }
 }
+
+
+    
